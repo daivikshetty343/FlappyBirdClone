@@ -53,12 +53,12 @@ def mainGame():
     newPipe1 = getRandomPipe()
     newPipe2 = getRandomPipe()
 
-    # my list of upper pipes
+    # list of upper pipes
     upperPipes = [
         {'x': SCREENWIDTH+200, 'y':newPipe1[0]['y']},
         {'x': SCREENWIDTH+200+(SCREENWIDTH/2), 'y':newPipe2[0]['y']},
     ]
-    # my list of lower pipes
+    # list of lower pipes
     lowerPipes = [
         {'x': SCREENWIDTH+200, 'y':newPipe1[1]['y']},
         {'x': SCREENWIDTH+200+(SCREENWIDTH/2), 'y':newPipe2[1]['y']},
@@ -109,7 +109,6 @@ def mainGame():
 
 
         # move pipes to the left
-        # we will zip our pipes
         for upperPipe , lowerPipe in zip(upperPipes, lowerPipes):
             upperPipe['x'] += pipeVelX
             lowerPipe['x'] += pipeVelX
@@ -125,7 +124,7 @@ def mainGame():
             upperPipes.pop(0)
             lowerPipes.pop(0)
 
-        # lets blit our sprites now i.e lets draw or screen
+        # draw or screen
         SCREEN.blit(GAME_SPRITES['background'], (0, 0))
         for upperPipe, lowerPipe in zip(upperPipes, lowerPipes):
             SCREEN.blit(GAME_SPRITES['pipe'][0], (upperPipe['x'], upperPipe['y']))
@@ -182,7 +181,7 @@ def getRandomPipe():
 
 
 if __name__ == "__main__":
-    # this will be main fun from where game will start
+    
     pygame.init() #initialise all pygame module's
     FPSCLOCK = pygame.time.Clock()
     pygame.display.set_caption('Flappy Bird by Datatype')
